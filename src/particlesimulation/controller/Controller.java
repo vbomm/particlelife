@@ -61,13 +61,13 @@ public class Controller implements WorldUpdateListener {
     }
 
     /**
-     * Changes the velocity of a certain particle type.
+     * Changes the velocity cap of a certain particle type.
      *
      * @param index the particle type
-     * @param value the velocity
+     * @param value the velocity cap
      */
-    public void changeVelocity(int index, int value) {
-        model.changeVelocity(index, value);
+    public void changeVelocityCap(int index, int value) {
+        model.changeVelocityCap(index, value);
     }
 
     /**

@@ -153,7 +153,7 @@ public class View {
             velocityCapSpinners[l].addChangeListener(new ChangeListener() {
                 @Override
                 public void stateChanged(ChangeEvent e) {
-                    velocityChanged(e);
+                    velocityCapChanged(e);
                 }
             });
             p.add(velocityCapSpinners[l], constraints);
@@ -238,12 +238,12 @@ public class View {
     }
 
     /**
-     * Informs the Controller when a velocity value gets changed.
+     * Informs the Controller when a velocity cap value gets changed.
      * Negative values are displayed in red, positive in black.
      *
      * @param e
      */
-    private void velocityChanged(ChangeEvent e) {
+    private void velocityCapChanged(ChangeEvent e) {
         for (int i = 0; i < velocityCapSpinners.length; i++)
             if (velocityCapSpinners[i] == e.getSource()) {
                 JTextField tf = ((JSpinner.DefaultEditor) velocityCapSpinners[i].getEditor()).getTextField();
@@ -253,7 +253,7 @@ public class View {
                     tf.setForeground(Color.BLACK);
                 velocityCapSpinners[i].setForeground(Color.RED);
 
-                controller.changeVelocity(i, (int) velocityCapSpinners[i].getValue());
+                controller.changeVelocityCap(i, (int) velocityCapSpinners[i].getValue());
             }
     }
 
