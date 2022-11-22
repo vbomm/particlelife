@@ -5,6 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * JPanel where the particles get displayed.
+ */
 public class ParticlePanel extends JPanel {
     private View view;
     private final int width;
@@ -14,6 +17,14 @@ public class ParticlePanel extends JPanel {
     private int framesPerSecond;
     private int[][] world;
 
+    /**
+     * Creates a new instance of ParticlePanel
+     *
+     * @param view             the View object that instantiated this Object
+     * @param width            the width of the panel
+     * @param height           the height of the panel
+     * @param particleDiameter the diameter used to display a particle
+     */
     public ParticlePanel(View view, int width, int height, int particleDiameter) {
         this.width = width;
         this.height = height;
@@ -32,6 +43,11 @@ public class ParticlePanel extends JPanel {
         timer.start();
     }
 
+    /**
+     * Overriden to display the particles.
+     *
+     * @param g the Graphics object to protect
+     */
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -58,6 +74,11 @@ public class ParticlePanel extends JPanel {
             }
     }
 
+    /**
+     * Used to update world that represents the space that contains the particles.
+     *
+     * @param world two-dimensional array that contains particles
+     */
     public void updateParticleList(int[][] world) {
         this.world = world;
     }

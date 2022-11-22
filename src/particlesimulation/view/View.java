@@ -9,6 +9,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Represents the visual component of the project.
+ */
 public class View {
     private Controller controller;
     private String windowTitle;
@@ -21,6 +24,16 @@ public class View {
     private int width;
     private int height;
 
+
+    /**
+     * Initializes a new View and creates the visual components.
+     *
+     * @param controller       the Controller object
+     * @param windowTitle      title of the window
+     * @param width            width of ParticlePanel
+     * @param height           height of ParticlePanel
+     * @param particleDiameter diameter used to display the particles
+     */
     public View(Controller controller, String windowTitle, int width, int height, int particleDiameter) {
         this.controller = controller;
         this.windowTitle = windowTitle;
@@ -33,10 +46,19 @@ public class View {
         frame.pack();
     }
 
+    /**
+     * Makes the frame visible.
+     */
     public void show() {
         frame.setVisible(true);
     }
 
+
+    /**
+     * Creates and returns a JFrame.
+     *
+     * @return created JFrame
+     */
     private JFrame createFrame() {
         JFrame f = new JFrame();
 
@@ -50,6 +72,12 @@ public class View {
         return f;
     }
 
+    /**
+     * Creates and returns a ParticlePanel.
+     *
+     * @param particleDiameter diameter used to display a particle
+     * @return                 the created ParticlePanel
+     */
     private ParticlePanel createParticlePanel(int particleDiameter) {
         ParticlePanel p = new ParticlePanel(this, width, height, particleDiameter);
 
@@ -59,6 +87,12 @@ public class View {
         return p;
     }
 
+
+    /**
+     * Creates the JPanel that is used as the user interface.
+     *
+     * @return the created JPanel
+     */
     private JPanel createUIPanel() {
         JPanel p = new JPanel(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
@@ -170,6 +204,11 @@ public class View {
         return p;
     }
 
+    /**
+     * Gets called when a spinner changed, informs Controller about it.
+     *
+     * @param e the ChangeEvent
+     */
     private void spinnerChanged(ChangeEvent e) {
         for (int i = 0; i < gravitySpinners.length; i++)
             if (gravitySpinners[i] == e.getSource()) {
@@ -185,6 +224,11 @@ public class View {
             }
     }
 
+    /**
+     * Informs the Controller when a range value gets changed.
+     *
+     * @param e the ChangeEvent
+     */
     private void rangeChanged(ChangeEvent e) {
         for (int i = 0; i < gravityRangeSpinners.length; i++)
             if (gravityRangeSpinners[i] == e.getSource()) {
@@ -193,6 +237,12 @@ public class View {
             }
     }
 
+    /**
+     * Informs the Controller when a velocity value gets changed.
+     * Negative values are displayed in red, positive in black.
+     *
+     * @param e
+     */
     private void velocityChanged(ChangeEvent e) {
         for (int i = 0; i < velocityCapSpinners.length; i++)
             if (velocityCapSpinners[i] == e.getSource()) {
@@ -207,10 +257,18 @@ public class View {
             }
     }
 
+    /**
+     * Requests a updated world from the Controller.
+     */
     public void requestWorld() {
         controller.requestWorld();
     }
 
+    /**
+     * Transfers the received world update to the ParticlePanel.
+     *
+     * @param world two-dimensional array that represents the location of the particles
+     */
     public void updateWorld(int[][] world) {
         particlePanel.updateParticleList(world);
     }

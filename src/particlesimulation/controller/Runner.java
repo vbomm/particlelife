@@ -5,6 +5,11 @@ package particlesimulation.controller;
  */
 public class Runner {
 
+    /**
+     * New controller object gets created here to start the program.
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         String windowTitle = "ParticleLife";
         int particleDiameter = 4;
