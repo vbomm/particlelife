@@ -61,7 +61,7 @@ public class World {
      * @param value the new strength of g
      */
     public void changeRule(int rule, int value) {
-        rules[rule].setG((float) value / 20);
+        rules[rule].setG((float) value / 200);
     }
 
     /**
