@@ -112,8 +112,8 @@ public class World {
     /**
      * Calls method to correct the y coordinate of a particle, so it doesn't move outside of the world.
      *
-     * @param y
-     * @return
+     * @param y the y coordinate
+     * @return  the corrected y coordinate
      */
     private int fitFloatToWorldHeight(float y) {
         return fitFloatToWorld(y, height);
