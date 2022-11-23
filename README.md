@@ -8,5 +8,5 @@ There are five different particle types represented by the colors yellow, red, g
 
 ## Interface explained
 <img src="readme/yellowsettings.png" alt="settings for the yellow particles"><br>
-Yellow is pulled to yellow (+12) and green(+9) particles, pushed away by red (-30), gray (-4) and cyan (-5). Per update it is able to travel a maximum of 5 pixels (veloctiy cap) and its gravity affects other particles in a range of 90 pixels (gravity range). A "velocity cap" of "-1" means there is no cap.<br>
+Yellow is pulled to yellow (+12) and green (+9) particles, pushed away by red (-30), gray (-4) and cyan (-5). Per update it is able to travel a maximum of 5 pixels (veloctiy cap) and its gravity affects other particles in a range of 90 pixels (gravity range). A "velocity cap" of "-1" means there is no cap.<br>
 The "add particles" button adds 50 particles of each color, the "remove particles" button removes 50 particles of each color.
