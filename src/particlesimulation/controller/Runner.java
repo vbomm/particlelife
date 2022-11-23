@@ -11,7 +11,7 @@ public class Runner {
      * @param args
      */
     public static void main(String[] args) {
-        String windowTitle = "ParticleLife";
+        String windowTitle = "ParticleSimulation";
         int particleDiameter = 4;
         int width = 1200;
         int height = 900;

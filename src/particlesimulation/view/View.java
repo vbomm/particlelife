@@ -176,7 +176,7 @@ public class View {
             p.add(gravityRangeSpinners[l], constraints);
         }
 
-        JButton removeParticles = new JButton("remove Particles");
+        JButton removeParticles = new JButton("remove particles");
         constraints.gridx = 0;
         constraints.gridwidth = 1;
         removeParticles.addActionListener(new ActionListener() {
@@ -187,7 +187,7 @@ public class View {
         });
         p.add(removeParticles, constraints);
 
-        JButton addParticles = new JButton("add Particles");
+        JButton addParticles = new JButton("add particles");
         constraints.gridx = 1;
         constraints.gridwidth = 1;
         addParticles.addActionListener(new ActionListener() {
