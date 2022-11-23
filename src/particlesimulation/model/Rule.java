@@ -29,30 +29,31 @@ public class Rule implements Runnable {
         this.g = g;
     }
 
-    /**
-     * Causes the rule to take affect on the particle.
+    /**.
+     * Iterate through particles and see if there are other particles in range.
+     * If that is the case, cause force on the particle.
      */
     private void gravity() {
 
         for(int i = 0; i < particlesA.size(); i++) {
-            float fx = 0;
-            float fy = 0;
+            float forceX = 0;
+            float forceY = 0;
             Particle particle1 = particlesA.get(i);
 
             for (int j = 0; j < particlesB.size(); j++) {
                 Particle particle2 = particlesB.get(j);
 
-                float dx = computeDelta(particle1.getX(), particle2.getX(), width);
-                float dy = computeDelta(particle1.getY(), particle2.getY(), height);
+                float distanceX = computeDelta(particle1.getX(), particle2.getX(), width);
+                float distanceY = computeDelta(particle1.getY(), particle2.getY(), height);
 
-                float distance = (float) (Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)));
+                float distance = (float) (Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2)));
 
                 if (distance > particle2.getType().getRangeMin() && distance < particle2.getType().getRangeMax()) {
-                    fx += (dx / distance);
-                    fy += (dy / distance);
+                    forceX += (distanceX / distance);
+                    forceY += (distanceY / distance);
                 }
             }
-            particle1.influenceVelocity(fx, fy, g);
+            particle1.influenceVelocity(forceX, forceY, g);
         }
     }
 
