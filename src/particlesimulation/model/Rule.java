@@ -35,13 +35,14 @@ public class Rule implements Runnable {
      */
     private void gravity() {
 
-        for(int i = 0; i < particlesA.size(); i++) {
+        for(int p1 = 0; p1 < particlesA.size(); p1++) {
             float forceX = 0;
             float forceY = 0;
-            Particle particle1 = particlesA.get(i);
 
-            for (int j = 0; j < particlesB.size(); j++) {
-                Particle particle2 = particlesB.get(j);
+            Particle particle1 = particlesA.get(p1);
+
+            for (int p2 = 0; p2 < particlesB.size(); p2++) {
+                Particle particle2 = particlesB.get(p2);
 
                 float distanceX = computeDelta(particle1.getX(), particle2.getX(), width);
                 float distanceY = computeDelta(particle1.getY(), particle2.getY(), height);
